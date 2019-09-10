@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "606721371525",
+    "firebase_url": "https://androidstudioprojects-b87af.firebaseio.com",
+    "project_id": "androidstudioprojects-b87af",
+    "storage_bucket": "androidstudioprojects-b87af.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:606721371525:android:e8f9bbf76a43dd65ffa8ec",
+        "android_client_info": {
+          "package_name": "com.example.photoblogapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "606721371525-icjb6tu9pd28oh66mqu9bud13rn94l7l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.photoblogapp",
+            "certificate_hash": "33a344c84daafe648dd70a53eb3278d6b08438c2"
+          }
+        },
+        {
+          "client_id": "606721371525-2g0ved518i4h2fc7o78c3g4aorqfofjh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7tPdLSWsvKavQLkhonBTfkGeXRCAESRI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "606721371525-2g0ved518i4h2fc7o78c3g4aorqfofjh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
