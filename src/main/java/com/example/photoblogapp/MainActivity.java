@@ -12,9 +12,14 @@ import android.widget.Toast;
 
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -30,9 +35,17 @@ public class MainActivity extends AppCompatActivity {
 
     private Toolbar main_toolbar;
     private FloatingActionButton addPostBtn;
+
+    private BottomNavigationView bottomNavigationView;
+
     private FirebaseAuth mAuth;
 
     private String current_user_id;
+
+    //We are initializing the fragments.
+    private FragmentHome fragmentHome;
+    private FragmentNotification fragmentNotification;
+    private FragmentAccount fragmentAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +60,35 @@ public class MainActivity extends AppCompatActivity {
         main_toolbar = (Toolbar) findViewById(R.id.main_toolbar);
         setSupportActionBar(main_toolbar);
         addPostBtn = findViewById(R.id.add_post);
+
+        fragmentAccount = new FragmentAccount();
+        fragmentHome = new FragmentHome();
+        fragmentNotification = new FragmentNotification();
 //        getSupportActionBar().setTitle("Photo Blog");
+
+
+
+        bottomNavigationView = findViewById(R.id.mainBottomNav);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+                switch(menuItem.getItemId()){
+                    case R.id.bottom_home:
+                        replaceFragement(fragmentHome);
+                        return true;
+                    case R.id.bottom_account:
+                        replaceFragement(fragmentAccount);
+                        return true;
+                    case R.id.bottom_notification:
+                        replaceFragement(fragmentNotification);
+                        return true;
+
+                }
+                return false;
+            }
+        });
 
         addPostBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,4 +168,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+    private void replaceFragement(Fragment fragment){
+
+        //This is used to change the fragments.
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        //The above will start the transaction.
+        //The below will simply replace the fragment.
+        fragmentTransaction.replace(R.id.main_container,fragment); //This will replace the container with the said fragment.
+        fragmentTransaction.commit(); //This is like done.
+    }
+
 }
