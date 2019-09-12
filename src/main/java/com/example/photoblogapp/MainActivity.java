@@ -41,15 +41,13 @@ public class MainActivity extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
-
+        current_user_id = FirebaseAuth.getInstance().getUid();
 
         mAuth = FirebaseAuth.getInstance();
         main_toolbar = (Toolbar) findViewById(R.id.main_toolbar);
         setSupportActionBar(main_toolbar);
-
-        current_user_id = mAuth.getCurrentUser().getUid();
         addPostBtn = findViewById(R.id.add_post);
-        getSupportActionBar().setTitle("Photo Blog");
+//        getSupportActionBar().setTitle("Photo Blog");
 
         addPostBtn.setOnClickListener(new View.OnClickListener() {
             @Override
