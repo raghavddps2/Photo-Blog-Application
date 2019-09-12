@@ -40,6 +40,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+import java.util.UUID;
 import java.util.zip.InflaterInputStream;
 
 import id.zelory.compressor.Compressor;
@@ -106,7 +107,7 @@ public class NewPostActivity extends AppCompatActivity {
 
                 if(!TextUtils.isEmpty(desc) && postImageUri != null) {
                     newProgressBar.setVisibility(View.VISIBLE);
-                    final String randomName = random();
+                    final String randomName = UUID.randomUUID().toString();
 
                     //Lets store the things to the firestore now.
                     Log.i("random","HIII");
@@ -226,6 +227,7 @@ public class NewPostActivity extends AppCompatActivity {
         }
     }
 
+    //This was the function to generate the random string.
     public static String random() {
         Random generator = new Random();
         StringBuilder randomStringBuilder = new StringBuilder();
